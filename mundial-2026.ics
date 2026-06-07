@@ -31,7 +31,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260611T200000
 DTEND;TZID=Europe/Lisbon:20260611T220000
 SUMMARY:Mundial 2026: México vs África do Sul (Grupo A)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo A.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo A.\nTransmissão: TVI\, Sport TV\, Livemode.
 LOCATION:Cidade do México\, México
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo A
 END:VEVENT
@@ -51,7 +51,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260612T200000
 DTEND;TZID=Europe/Lisbon:20260612T220000
 SUMMARY:Mundial 2026: Canadá vs Bósnia-Herzegovina (Grupo B)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo B.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo B.\nTransmissão: SIC\, Sport TV\, Livemode.
 LOCATION:Canadá
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo B
 END:VEVENT
@@ -191,7 +191,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260616T200000
 DTEND;TZID=Europe/Lisbon:20260616T220000
 SUMMARY:Mundial 2026: França vs Senegal (Grupo I)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I.\nTransmissão: RTP\, Sport TV\, Livemode.
 LOCATION:Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo I
 END:VEVENT
@@ -231,7 +231,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260617T180000
 DTEND;TZID=Europe/Lisbon:20260617T200000
 SUMMARY:Mundial 2026: Portugal vs RD Congo (Grupo K)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K.\nTransmissão: SIC\, Sport TV\, Livemode.
 LOCATION:Houston\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo K,Portugal
 END:VEVENT
@@ -281,7 +281,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260618T200000
 DTEND;TZID=Europe/Lisbon:20260618T220000
 SUMMARY:Mundial 2026: Suíça vs Bósnia-Herzegovina (Grupo B)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo B.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo B.\nTransmissão: RTP\, Sport TV\, Livemode.
 LOCATION:Canadá
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo B
 END:VEVENT
@@ -361,7 +361,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260620T210000
 DTEND;TZID=Europe/Lisbon:20260620T230000
 SUMMARY:Mundial 2026: Alemanha vs Costa do Marfim (Grupo E)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo E.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo E.\nTransmissão: TVI\, Sport TV\, Livemode.
 LOCATION:Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo E
 END:VEVENT
@@ -471,7 +471,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260623T180000
 DTEND;TZID=Europe/Lisbon:20260623T200000
 SUMMARY:Mundial 2026: Portugal vs Uzbequistão (Grupo K)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K.\nTransmissão: TVI\, Sport TV\, Livemode.
 LOCATION:Houston\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo K,Portugal
 END:VEVENT
@@ -571,7 +571,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260625T210000
 DTEND;TZID=Europe/Lisbon:20260625T230000
 SUMMARY:Mundial 2026: Equador vs Alemanha (Grupo E)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo E (jornada simultânea).\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo E (jornada simultânea).\nTransmissão: SIC\, Sport TV\, Livemode.
 LOCATION:Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo E
 END:VEVENT
@@ -631,7 +631,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260626T200000
 DTEND;TZID=Europe/Lisbon:20260626T220000
 SUMMARY:Mundial 2026: Noruega vs França (Grupo I)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I (jornada simultânea).\nTransmissão: Sport TV.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I (jornada simultânea).\nTransmissão: TVI\, Sport TV.
 LOCATION:Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo I
 END:VEVENT
@@ -711,7 +711,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;TZID=Europe/Lisbon:20260628T003000
 DTEND;TZID=Europe/Lisbon:20260628T023000
 SUMMARY:Mundial 2026: Colômbia vs Portugal (Grupo K)
-DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K (jornada simultânea).\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K (jornada simultânea).\nTransmissão: RTP\, Sport TV\, Livemode.
 LOCATION:Miami\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo K,Portugal
 END:VEVENT
@@ -891,7 +891,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;VALUE=DATE:20260703
 DTEND;VALUE=DATE:20260704
 SUMMARY:Mundial 2026: Venc. Grupo K vs 3º (D/E/I/J/L) (16-avos)
-DESCRIPTION:Mundial FIFA 2026 — Dezasseis-avos de final (jogo 87).\nHora a confirmar.\nTransmissão: Sport TV.
+DESCRIPTION:Mundial FIFA 2026 — Dezasseis-avos de final (jogo 87).\nHora a confirmar.\nTransmissão: SIC\, Sport TV.
 LOCATION:Kansas City\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Dezasseis-avos
 END:VEVENT
@@ -981,7 +981,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;VALUE=DATE:20260707
 DTEND;VALUE=DATE:20260708
 SUMMARY:Mundial 2026: Venc. J85 vs Venc. J87 (Oitavos)
-DESCRIPTION:Mundial FIFA 2026 — Oitavos de final (jogo 96).\nHora a confirmar.\nTransmissão: Sport TV.
+DESCRIPTION:Mundial FIFA 2026 — Oitavos de final (jogo 96).\nHora a confirmar.\nTransmissão: RTP\, Sport TV.
 LOCATION:Vancouver\, Canadá
 CATEGORIES:Mundial 2026,Oitavos
 END:VEVENT
@@ -1021,7 +1021,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;VALUE=DATE:20260712
 DTEND;VALUE=DATE:20260713
 SUMMARY:Mundial 2026: Venc. J95 vs Venc. J96 (Quartos de Final)
-DESCRIPTION:Mundial FIFA 2026 — Quartos de final (jogo 100).\nHora a confirmar.\nTransmissão: Sport TV.
+DESCRIPTION:Mundial FIFA 2026 — Quartos de final (jogo 100).\nHora a confirmar.\nTransmissão: TVI\, Sport TV.
 LOCATION:Kansas City\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Quartos
 END:VEVENT
@@ -1041,7 +1041,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;VALUE=DATE:20260715
 DTEND;VALUE=DATE:20260716
 SUMMARY:Mundial 2026: Venc. J99 vs Venc. J100 (Meia-Final)
-DESCRIPTION:Mundial FIFA 2026 — Meia-final (jogo 102).\nHora a confirmar.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — Meia-final (jogo 102).\nHora a confirmar.\nTransmissão: SIC\, Sport TV\, Livemode.
 LOCATION:Atlanta\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Meias-Finais
 END:VEVENT
@@ -1061,7 +1061,7 @@ DTSTAMP:20260521T000000Z
 DTSTART;VALUE=DATE:20260719
 DTEND;VALUE=DATE:20260720
 SUMMARY:Mundial 2026: FINAL — Venc. J101 vs Venc. J102
-DESCRIPTION:Mundial FIFA 2026 — FINAL (jogo 104).\nHora a confirmar.\nTransmissão: Sport TV\, Livemode.
+DESCRIPTION:Mundial FIFA 2026 — FINAL (jogo 104).\nHora a confirmar.\nTransmissão: RTP\, Sport TV\, Livemode.
 LOCATION:Nova Iorque/Nova Jérsia\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Final
 END:VEVENT
