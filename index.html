@@ -84,23 +84,39 @@
   .f.ptf[aria-pressed="true"]{background:var(--peach);color:var(--crust);border-color:var(--peach)}
 
   /* BRACKET */
+  #bracketView.full{
+    position:relative;left:50%;right:50%;
+    margin-left:-50vw;margin-right:-50vw;width:100vw;
+    padding:0 max(22px,calc((100vw - 1280px)/2));
+  }
   #bracketWrap{overflow-x:auto;padding-bottom:8px}
-  .bracket{display:flex;gap:18px;min-width:max-content;padding:4px}
-  .round{display:flex;flex-direction:column;justify-content:space-around;gap:10px;min-width:178px}
-  .round-t{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--overlay);text-align:center;margin-bottom:4px}
-  .tie{background:var(--mantle);border:1px solid var(--surface0);border-radius:9px;padding:8px 10px;font-size:.84rem}
+  .bracket{display:flex;gap:14px;min-width:max-content;padding:4px;align-items:stretch}
+  .round{display:flex;flex-direction:column;justify-content:space-around;gap:8px;flex:1;min-width:150px;max-width:210px}
+  .round-t{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--overlay);text-align:center;margin-bottom:4px;position:sticky;top:0}
+  .tie{background:var(--mantle);border:1px solid var(--surface0);border-radius:9px;padding:8px 10px;font-size:.82rem}
   .tie.pt{border-left:3px solid var(--peach)}
   .tie .side{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
-  .tie .side .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;color:var(--subtext)}
+  .tie .side .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--subtext)}
   .tie .side.win .nm{color:var(--text);font-weight:700}
-  .tie .side .sc{font-family:'DM Mono',monospace;color:var(--overlay);font-variant-numeric:tabular-nums}
+  .tie .side .sc{font-family:'DM Mono',monospace;color:var(--overlay);font-variant-numeric:tabular-nums;flex-shrink:0}
   .tie .side.win .sc{color:var(--green)}
-  .tie .when{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--overlay);margin-top:4px;text-align:right}
-  .champ{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:160px;gap:8px}
+  .tie .when{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--overlay);margin-top:4px;text-align:right}
+  .champ{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:150px;gap:8px;flex:1}
   .champ .cup{font-size:2.6rem;line-height:1;filter:drop-shadow(0 4px 10px rgba(249,226,175,.3))}
-  .champ .lbl{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--overlay)}
-  .champ .nm{font-weight:700;font-size:1.15rem;color:var(--yellow);text-align:center}
+  .champ .lbl{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--overlay)}
+  .champ .nm{font-weight:700;font-size:1.1rem;color:var(--yellow);text-align:center}
   .champ .nm.tbd{color:var(--overlay);font-weight:400}
+
+  /* MOBILE: lista vertical por ronda, sem scroll horizontal */
+  @media(max-width:700px){
+    #bracketView.full{position:static;left:auto;right:auto;margin:0;width:auto;padding:0}
+    #bracketWrap{overflow-x:visible}
+    .bracket{flex-direction:column;min-width:0;gap:0}
+    .round{max-width:none;min-width:0;gap:8px;margin-bottom:22px}
+    .round-t{text-align:left;font-size:.72rem;color:var(--peach);margin-bottom:10px;position:static}
+    .champ{flex-direction:row;justify-content:center;gap:14px;padding:10px;background:var(--mantle);border:1px solid var(--surface0);border-radius:12px}
+    .champ .cup{font-size:2rem}
+  }
 
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
   .tab{background:var(--mantle);border:1px solid var(--surface0);color:var(--subtext);border-radius:9px;padding:8px 15px;cursor:pointer;font-family:'DM Sans';font-weight:500;font-size:.9rem;transition:all .12s}
@@ -432,11 +448,11 @@ g('subBtn').addEventListener('click',e=>{
 });
 g('vCal').addEventListener('click',()=>{
   g('vCal').setAttribute('aria-selected','true');g('vBracket').setAttribute('aria-selected','false');
-  g('calView').classList.remove('hidden');g('bracketView').classList.add('hidden');
+  g('calView').classList.remove('hidden');g('bracketView').classList.add('hidden');g('bracketView').classList.remove('full');
 });
 g('vBracket').addEventListener('click',()=>{
   g('vBracket').setAttribute('aria-selected','true');g('vCal').setAttribute('aria-selected','false');
-  g('bracketView').classList.remove('hidden');g('calView').classList.add('hidden');
+  g('bracketView').classList.remove('hidden');g('bracketView').classList.add('full');g('calView').classList.add('hidden');
 });
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
