@@ -478,8 +478,7 @@ DTEND;TZID=Europe/Lisbon:20260622T200000
 SUMMARY:🇦🇷 Argentina vs 🇦🇹 Áustria (Grupo J)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo J.\nTransmissão: 
  Sport TV\, LiveModeTV.
-LOCATION:MetLife Stadium\, Nova Iorque/Nova Jérsia\, Estados Unidos da Am
- érica
+LOCATION:AT&T Stadium\, Dallas\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo J
 END:VEVENT
 BEGIN:VEVENT
@@ -501,7 +500,8 @@ DTEND;TZID=Europe/Lisbon:20260623T030000
 SUMMARY:🇳🇴 Noruega vs 🇸🇳 Senegal (Grupo I)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I.\nTransmissão: 
  Sport TV.
-LOCATION:AT&T Stadium\, Dallas\, Estados Unidos da América
+LOCATION:MetLife Stadium\, Nova Iorque/Nova Jérsia\, Estados Unidos da Am
+ érica
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo I
 END:VEVENT
 BEGIN:VEVENT
@@ -523,7 +523,7 @@ DTEND;TZID=Europe/Lisbon:20260623T200000
 SUMMARY:🇵🇹 Portugal vs 🇺🇿 Uzbequistão (Grupo K)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K.\nTransmissão: 
  TVI\, Sport TV\, LiveModeTV.
-LOCATION:Gillette Stadium\, Boston\, Estados Unidos da América
+LOCATION:NRG Stadium\, Houston\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo K,Portugal
 END:VEVENT
 BEGIN:VEVENT
@@ -534,7 +534,7 @@ DTEND;TZID=Europe/Lisbon:20260623T230000
 SUMMARY:🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra vs 🇬🇭 Gana (Grupo L)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo L.\nTransmissão: 
  Sport TV.
-LOCATION:BMO Field\, Toronto\, Canadá
+LOCATION:Gillette Stadium\, Boston\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo L
 END:VEVENT
 BEGIN:VEVENT
@@ -545,7 +545,7 @@ DTEND;TZID=Europe/Lisbon:20260624T020000
 SUMMARY:🇵🇦 Panamá vs 🇭🇷 Croácia (Grupo L)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo L.\nTransmissão: 
  Sport TV.
-LOCATION:NRG Stadium\, Houston\, Estados Unidos da América
+LOCATION:BMO Field\, Toronto\, Canadá
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo L
 END:VEVENT
 BEGIN:VEVENT
@@ -567,7 +567,7 @@ DTEND;TZID=Europe/Lisbon:20260624T220000
 SUMMARY:🇨🇭 Suíça vs 🇨🇦 Canadá (Grupo B)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo B (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Hard Rock Stadium\, Miami\, Estados Unidos da América
+LOCATION:BC Place\, Vancouver\, Canadá
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo B
 END:VEVENT
 BEGIN:VEVENT
@@ -578,7 +578,7 @@ DTEND;TZID=Europe/Lisbon:20260624T220000
 SUMMARY:🇧🇦 Bósnia e Herzegovina vs 🇶🇦 Catar (Grupo B)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo B (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Mercedes-Benz Stadium\, Atlanta\, Estados Unidos da América
+LOCATION:Lumen Field\, Seattle\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo B
 END:VEVENT
 BEGIN:VEVENT
@@ -589,7 +589,7 @@ DTEND;TZID=Europe/Lisbon:20260625T010000
 SUMMARY:🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia vs 🇧🇷 Brasil (Grupo C)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo C (jornada simult
  ânea).\nTransmissão: Sport TV\, LiveModeTV.
-LOCATION:BC Place\, Vancouver\, Canadá
+LOCATION:Hard Rock Stadium\, Miami\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo C
 END:VEVENT
 BEGIN:VEVENT
@@ -600,7 +600,7 @@ DTEND;TZID=Europe/Lisbon:20260625T010000
 SUMMARY:🇲🇦 Marrocos vs 🇭🇹 Haiti (Grupo C)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo C (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Lumen Field\, Seattle\, Estados Unidos da América
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo C
 END:VEVENT
 BEGIN:VEVENT
@@ -700,7 +700,7 @@ DTEND;TZID=Europe/Lisbon:20260626T220000
 SUMMARY:🇳🇴 Noruega vs 🇫🇷 França (Grupo I)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I (jornada simult
  ânea).\nTransmissão: TVI\, Sport TV.
-LOCATION:Lumen Field\, Seattle\, Estados Unidos da América
+LOCATION:Gillette Stadium\, Boston\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo I
 END:VEVENT
 BEGIN:VEVENT
@@ -711,7 +711,7 @@ DTEND;TZID=Europe/Lisbon:20260626T220000
 SUMMARY:🇸🇳 Senegal vs 🇮🇶 Iraque (Grupo I)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo I (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:BC Place\, Vancouver\, Canadá
+LOCATION:Hard Rock Stadium\, Miami\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo I
 END:VEVENT
 BEGIN:VEVENT
@@ -722,7 +722,7 @@ DTEND;TZID=Europe/Lisbon:20260627T030000
 SUMMARY:🇨🇻 Cabo Verde vs 🇸🇦 Arábia Saudita (Grupo H)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo H (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Estádio Azteca\, Cidade do México\, México
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo H
 END:VEVENT
 BEGIN:VEVENT
@@ -744,7 +744,7 @@ DTEND;TZID=Europe/Lisbon:20260627T060000
 SUMMARY:🇪🇬 Egito vs 🇮🇷 Irão (Grupo G)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo G (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Gillette Stadium\, Boston\, Estados Unidos da América
+LOCATION:Lumen Field\, Seattle\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo G
 END:VEVENT
 BEGIN:VEVENT
@@ -755,7 +755,7 @@ DTEND;TZID=Europe/Lisbon:20260627T060000
 SUMMARY:🇳🇿 Nova Zelândia vs 🇧🇪 Bélgica (Grupo G)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo G (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Hard Rock Stadium\, Miami\, Estados Unidos da América
+LOCATION:BC Place\, Vancouver\, Canadá
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo G
 END:VEVENT
 BEGIN:VEVENT
@@ -790,7 +790,7 @@ DTEND;TZID=Europe/Lisbon:20260628T023000
 SUMMARY:🇨🇴 Colômbia vs 🇵🇹 Portugal (Grupo K)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K (jornada simult
  ânea).\nTransmissão: RTP\, Sport TV\, LiveModeTV.
-LOCATION:AT&T Stadium\, Dallas\, Estados Unidos da América
+LOCATION:Hard Rock Stadium\, Miami\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo K,Portugal
 END:VEVENT
 BEGIN:VEVENT
@@ -801,7 +801,7 @@ DTEND;TZID=Europe/Lisbon:20260628T023000
 SUMMARY:🇨🇩 RD Congo vs 🇺🇿 Uzbequistão (Grupo K)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo K (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Arrowhead Stadium\, Kansas City\, Estados Unidos da América
+LOCATION:Mercedes-Benz Stadium\, Atlanta\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo K
 END:VEVENT
 BEGIN:VEVENT
@@ -812,7 +812,7 @@ DTEND;TZID=Europe/Lisbon:20260628T050000
 SUMMARY:🇩🇿 Argélia vs 🇦🇹 Áustria (Grupo J)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo J (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Hard Rock Stadium\, Miami\, Estados Unidos da América
+LOCATION:AT&T Stadium\, Dallas\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo J
 END:VEVENT
 BEGIN:VEVENT
@@ -823,7 +823,7 @@ DTEND;TZID=Europe/Lisbon:20260628T050000
 SUMMARY:🇯🇴 Jordânia vs 🇦🇷 Argentina (Grupo J)
 DESCRIPTION:Mundial FIFA 2026 — Fase de Grupos\, Grupo J (jornada simult
  ânea).\nTransmissão: Sport TV.
-LOCATION:Mercedes-Benz Stadium\, Atlanta\, Estados Unidos da América
+LOCATION:Arrowhead Stadium\, Kansas City\, Estados Unidos da América
 CATEGORIES:Mundial 2026,Fase de Grupos,Grupo J
 END:VEVENT
 BEGIN:VEVENT
