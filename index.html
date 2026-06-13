@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendário do Mundial 2026 · em português</title>
-<meta name="description" content="Calendário dos 104 jogos do Mundial FIFA 2026 em hora de Portugal Continental, com estádios, canais e resultados. Subscreve no Google, Apple ou Outlook.">
+<meta name="description" content="Calendário dos 104 jogos do Mundial FIFA 2026 em hora de Portugal Continental, com estádios, canais, resultados e quadro a eliminar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     background-image:radial-gradient(900px 500px at 80% -10%,rgba(166,227,161,.07),transparent 60%),
                      radial-gradient(700px 400px at -10% 10%,rgba(203,166,247,.06),transparent 55%);
   }
-  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
   ::selection{background:var(--green);color:var(--crust)}
 
   header{padding:60px 0 34px;text-align:center}
@@ -60,21 +60,47 @@
   .day-h:first-child{margin-top:0}
   .m{display:grid;grid-template-columns:46px 1fr auto;gap:14px;align-items:center;background:var(--mantle);border:1px solid var(--surface0);border-radius:11px;padding:12px 15px;margin-bottom:8px}
   .m.pt{border-left:3px solid var(--peach)}
+  .m.played{opacity:.82}
   .m .h{font-family:'DM Mono',monospace;font-size:.92rem;color:var(--subtext);font-variant-numeric:tabular-nums;text-align:center}
   .m .teams{font-weight:500;font-size:1rem}
   .m .teams .g{color:var(--overlay);font-weight:400;font-size:.82rem}
   .m .sub{font-size:.78rem;color:var(--overlay);margin-top:2px}
   .m .score{font-family:'DM Mono',monospace;font-weight:500;font-size:1.05rem;color:var(--green);background:var(--surface0);border-radius:7px;padding:3px 10px;min-width:48px;text-align:center}
   .m .score.empty{color:var(--overlay);background:transparent;border:1px dashed var(--surface1)}
-  @media(max-width:560px){
-    .m{grid-template-columns:42px 1fr auto;gap:10px}
-    .m .sub{display:none}
-  }
+  .m .right{display:flex;align-items:center;gap:8px}
+  .hl{display:inline-flex;align-items:center;gap:5px;background:transparent;border:1px solid var(--surface1);color:var(--mauve);border-radius:7px;padding:4px 9px;font-size:.78rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:all .12s}
+  .hl:hover{background:var(--mauve);color:var(--crust);border-color:var(--mauve)}
+  .hl svg{width:11px;height:11px}
+  @media(max-width:560px){.m{grid-template-columns:42px 1fr auto;gap:10px}.m .sub{display:none}.hl span{display:none}.hl{padding:5px 7px}}
+
+  /* view switch */
+  .vswitch{display:inline-flex;background:var(--mantle);border:1px solid var(--surface0);border-radius:10px;padding:4px;gap:4px;margin-left:auto}
+  .vswitch button{background:transparent;border:none;color:var(--subtext);font-family:'DM Sans';font-weight:500;font-size:.86rem;padding:7px 14px;border-radius:7px;cursor:pointer;transition:all .12s}
+  .vswitch button[aria-selected="true"]{background:var(--surface0);color:var(--text)}
 
   .filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
   .f{background:var(--mantle);border:1px solid var(--surface0);color:var(--subtext);border-radius:8px;padding:7px 13px;cursor:pointer;font-family:'DM Sans';font-weight:500;font-size:.86rem;transition:all .12s}
   .f[aria-pressed="true"]{background:var(--surface0);color:var(--text);border-color:var(--surface1)}
   .f.ptf[aria-pressed="true"]{background:var(--peach);color:var(--crust);border-color:var(--peach)}
+
+  /* BRACKET */
+  #bracketWrap{overflow-x:auto;padding-bottom:8px}
+  .bracket{display:flex;gap:18px;min-width:max-content;padding:4px}
+  .round{display:flex;flex-direction:column;justify-content:space-around;gap:10px;min-width:178px}
+  .round-t{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--overlay);text-align:center;margin-bottom:4px}
+  .tie{background:var(--mantle);border:1px solid var(--surface0);border-radius:9px;padding:8px 10px;font-size:.84rem}
+  .tie.pt{border-left:3px solid var(--peach)}
+  .tie .side{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
+  .tie .side .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;color:var(--subtext)}
+  .tie .side.win .nm{color:var(--text);font-weight:700}
+  .tie .side .sc{font-family:'DM Mono',monospace;color:var(--overlay);font-variant-numeric:tabular-nums}
+  .tie .side.win .sc{color:var(--green)}
+  .tie .when{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--overlay);margin-top:4px;text-align:right}
+  .champ{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:160px;gap:8px}
+  .champ .cup{font-size:2.6rem;line-height:1;filter:drop-shadow(0 4px 10px rgba(249,226,175,.3))}
+  .champ .lbl{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--overlay)}
+  .champ .nm{font-weight:700;font-size:1.15rem;color:var(--yellow);text-align:center}
+  .champ .nm.tbd{color:var(--overlay);font-weight:400}
 
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
   .tab{background:var(--mantle);border:1px solid var(--surface0);color:var(--subtext);border-radius:9px;padding:8px 15px;cursor:pointer;font-family:'DM Sans';font-weight:500;font-size:.9rem;transition:all .12s}
@@ -92,6 +118,7 @@
 
   .loading{text-align:center;color:var(--overlay);padding:30px 0;font-family:'DM Mono',monospace;font-size:.85rem}
   .err{text-align:center;color:var(--red);padding:20px;font-size:.9rem}
+  .hidden{display:none!important}
 
   footer{padding:34px 0 56px;text-align:center;color:var(--overlay);font-size:.85rem;border-top:1px solid var(--surface0)}
   footer a{color:var(--subtext);text-decoration:none;border-bottom:1px solid var(--surface1)}
@@ -132,15 +159,29 @@
     <div id="ptList"><div class="loading">A carregar jogos…</div></div>
   </section>
 
-  <section id="todos">
-    <div class="sec-h"><h2>Calendário completo</h2><span class="tag" id="totalTag"></span></div>
-    <div class="filters" id="filters">
-      <button class="f ptf" data-f="PT" aria-pressed="false">🇵🇹 Portugal</button>
-      <button class="f" data-f="all" aria-pressed="true">Todos</button>
-      <button class="f" data-f="grupos" aria-pressed="false">Fase de grupos</button>
-      <button class="f" data-f="elim" aria-pressed="false">Eliminatórias</button>
+  <section id="jogos">
+    <div class="sec-h">
+      <h2>Jogos</h2>
+      <div class="vswitch" role="tablist">
+        <button id="vCal" aria-selected="true">Calendário</button>
+        <button id="vBracket" aria-selected="false">Quadro a eliminar</button>
+      </div>
     </div>
-    <div id="allList"><div class="loading">A carregar jogos…</div></div>
+
+    <div id="calView">
+      <div class="filters" id="filters">
+        <button class="f ptf" data-f="PT" aria-pressed="false">🇵🇹 Portugal</button>
+        <button class="f" data-f="all" aria-pressed="true">Todos</button>
+        <button class="f" data-f="grupos" aria-pressed="false">Fase de grupos</button>
+        <button class="f" data-f="elim" aria-pressed="false">Eliminatórias</button>
+      </div>
+      <div id="allList"><div class="loading">A carregar jogos…</div></div>
+    </div>
+
+    <div id="bracketView" class="hidden">
+      <div id="bracketWrap"><div class="loading">A carregar quadro…</div></div>
+      <div class="note" style="margin-top:18px">As equipas do quadro preenchem-se à medida que os resultados são introduzidos. O vencedor de cada jogo avança automaticamente.</div>
+    </div>
   </section>
 
   <section id="como">
@@ -197,33 +238,22 @@ const RES_URL = location.origin + BASE + "resultados.json";
 document.getElementById('icsUrl').textContent = ICS_URL;
 
 function parseICS(text){
-  const raw = text.split(/\r\n|\n|\r/);
-  const lines=[];
-  for(const l of raw){
-    if(l[0]===' '||l[0]==='\t') lines[lines.length-1]+=l.slice(1);
-    else lines.push(l);
-  }
-  const events=[]; let cur=null;
+  const raw=text.split(/\r\n|\n|\r/);const lines=[];
+  for(const l of raw){if(l[0]===' '||l[0]==='\t')lines[lines.length-1]+=l.slice(1);else lines.push(l);}
+  const ev=[];let c=null;
   for(const l of lines){
-    if(l==='BEGIN:VEVENT'){cur={};continue;}
-    if(l==='END:VEVENT'){if(cur)events.push(cur);cur=null;continue;}
-    if(!cur)continue;
-    const i=l.indexOf(':'); if(i<0)continue;
-    const name=l.slice(0,i).split(';')[0], val=l.slice(i+1);
-    if(name==='UID') cur.uid=val;
-    else if(name==='SUMMARY') cur.summary=unesc(val);
-    else if(name==='LOCATION') cur.location=unesc(val);
-    else if(name==='DTSTART') cur.dt=parseDT(val);
-  }
-  return events;
+    if(l==='BEGIN:VEVENT'){c={};continue;}
+    if(l==='END:VEVENT'){if(c)ev.push(c);c=null;continue;}
+    if(!c)continue;
+    const i=l.indexOf(':');if(i<0)continue;
+    const n=l.slice(0,i).split(';')[0],v=l.slice(i+1);
+    if(n==='UID')c.uid=v;else if(n==='SUMMARY')c.summary=unesc(v);
+    else if(n==='LOCATION')c.location=unesc(v);else if(n==='DTSTART')c.dt=parseDT(v);
+  }return ev;
 }
 function unesc(s){return s.replace(/\\n/g,' ').replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\\\/g,'\\');}
-function parseDT(v){
-  const m=v.match(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})/);
-  if(!m)return null;
-  const [,Y,Mo,D,H,Mi,S]=m;
-  return new Date(Date.UTC(+Y,+Mo-1,+D,+H-1,+Mi,+S)); // Lisboa jun/jul = UTC+1
-}
+function parseDT(v){const m=v.match(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})/);if(!m)return null;
+  const[,Y,Mo,D,H,Mi,S]=m;return new Date(Date.UTC(+Y,+Mo-1,+D,+H-1,+Mi,+S));}
 function num(uid){const m=(uid||'').match(/-(\d+)@/);return m?m[1]:null;}
 function stripFlags(s){return s.replace(/[\u{1F000}-\u{1FAFF}\u{1F1E6}-\u{1F1FF}\u{E0000}-\u{E007F}\u{1F3F4}]/gu,'').replace(/\s+/g,' ').trim();}
 
@@ -231,25 +261,44 @@ const PT_TZ='Europe/Lisbon';
 const fmtDay=new Intl.DateTimeFormat('pt-PT',{weekday:'long',day:'2-digit',month:'long',timeZone:PT_TZ});
 const fmtHour=new Intl.DateTimeFormat('pt-PT',{hour:'2-digit',minute:'2-digit',timeZone:PT_TZ});
 const fmtDayKey=new Intl.DateTimeFormat('pt-PT',{day:'2-digit',month:'2-digit',timeZone:PT_TZ});
+const fmtShort=new Intl.DateTimeFormat('pt-PT',{day:'2-digit',month:'2-digit',timeZone:PT_TZ});
 
-let EVENTS=[], RESULTS={}, curFilter='all';
+let EVENTS=[], RESULTS={}, curFilter='all', byNum={};
 function isElim(s){return /Dezasseis|Oitavos|Quartos|Meia|lugar|Final/.test(s);}
 function isPT(s){return /Portugal/.test(s);}
 
+/* lê resultado: aceita objeto {r,hl} ou string antiga "2-0" */
+function resInfo(n){
+  const v=RESULTS[n];
+  if(!v)return{r:'',hl:''};
+  if(typeof v==='string')return{r:v.trim(),hl:''};
+  return{r:(v.r||'').trim(),hl:(v.hl||'').trim()};
+}
+const PLAY_SVG='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+/* extrai as duas equipas/labels de um summary (sem emoji, sem grupo) */
+function sides(ev){
+  let s=stripFlags(ev.summary).replace(/\s*\([^)]+\)\s*$/,'');
+  s=s.replace(/^Final\s*—\s*/,'');
+  const parts=s.split(' vs ');
+  if(parts.length===2)return[parts[0].trim(),parts[1].trim()];
+  return[s.trim(),''];
+}
 function teamsHtml(ev){
   const clean=stripFlags(ev.summary);
-  const gm=clean.match(/\(([^)]+)\)\s*$/);
-  const grupo=gm?gm[1]:'';
+  const gm=clean.match(/\(([^)]+)\)\s*$/);const grupo=gm?gm[1]:'';
   const main=clean.replace(/\s*\([^)]+\)\s*$/,'').replace(' vs ',' – ');
   return `<div class="teams">${main}${grupo?` <span class="g">${grupo}</span>`:''}</div>`;
 }
 function rowHtml(ev){
-  const r=(RESULTS[num(ev.uid)]||'').trim();
+  const {r,hl}=resInfo(num(ev.uid));
+  const played=!!r;
   const score=r?`<div class="score">${r}</div>`:`<div class="score empty">–</div>`;
-  return `<div class="m ${isPT(ev.summary)?'pt':''}">
+  const hlBtn=hl?`<a class="hl" href="${hl}" target="_blank" rel="noopener">${PLAY_SVG}<span>Resumo</span></a>`:'';
+  return `<div class="m ${isPT(ev.summary)?'pt':''} ${played?'played':''}">
     <div class="h">${fmtHour.format(ev.dt)}</div>
     <div>${teamsHtml(ev)}<div class="sub">${ev.location||''}</div></div>
-    ${score}</div>`;
+    <div class="right">${hlBtn}${score}</div></div>`;
 }
 function renderPT(){
   const pt=EVENTS.filter(e=>isPT(e.summary)).sort((a,b)=>a.dt-b.dt);
@@ -257,9 +306,9 @@ function renderPT(){
 }
 function renderAll(){
   let evs=[...EVENTS].sort((a,b)=>a.dt-b.dt);
-  if(curFilter==='PT') evs=evs.filter(e=>isPT(e.summary));
-  else if(curFilter==='grupos') evs=evs.filter(e=>!isElim(e.summary));
-  else if(curFilter==='elim') evs=evs.filter(e=>isElim(e.summary));
+  if(curFilter==='PT')evs=evs.filter(e=>isPT(e.summary));
+  else if(curFilter==='grupos')evs=evs.filter(e=>!isElim(e.summary));
+  else if(curFilter==='elim')evs=evs.filter(e=>isElim(e.summary));
   let html='',lastDay='';
   for(const e of evs){
     const dk=fmtDayKey.format(e.dt);
@@ -267,8 +316,77 @@ function renderAll(){
     html+=rowHtml(e);
   }
   document.getElementById('allList').innerHTML=html||'<div class="err">Sem jogos.</div>';
-  document.getElementById('totalTag').textContent=evs.length+' JOGOS';
 }
+
+/* ---------- QUADRO A ELIMINAR ---------- */
+/* resolve o nome de cada lado: se referir "Vencedor J##"/"Perdedor J##", segue o resultado */
+function resolveSide(label){
+  const mW=label.match(/Vencedor J(\d+)/i);
+  const mL=label.match(/Perdedor J(\d+)/i);
+  if(mW)return winnerOf(mW[1].padStart(3,'0'));
+  if(mL)return loserOf(mL[1].padStart(3,'0'));
+  return {name:label,decided:false}; // placeholder de grupo (ex.: "2.º do Grupo A")
+}
+function score(n){return resInfo(n).r;}
+function parseScore(r){const m=r.match(/(\d+)\s*[-–:x]\s*(\d+)/);return m?[+m[1],+m[2]]:null;}
+function tieResolved(n){ // devolve {a,b,sa,sb,wa,wb} se houver resultado
+  const ev=byNum[n];if(!ev)return null;
+  const [la,lb]=sides(ev);
+  const A=resolveSide(la),B=resolveSide(lb);
+  const r=score(n),ps=r?parseScore(r):null;
+  let wa=false,wb=false;
+  if(ps){if(ps[0]>ps[1])wa=true;else if(ps[1]>ps[0])wb=true;}
+  return {A,B,sa:ps?ps[0]:'',sb:ps?ps[1]:'',wa,wb,r};
+}
+function winnerOf(n){
+  const t=tieResolved(n);if(!t)return{name:'',decided:false};
+  if(t.wa)return{...t.A,decided:t.A.decided!==false};
+  if(t.wb)return{...t.B,decided:t.B.decided!==false};
+  return{name:'',decided:false};
+}
+function loserOf(n){
+  const t=tieResolved(n);if(!t)return{name:'',decided:false};
+  if(t.wa)return{...t.B};if(t.wb)return{...t.A};
+  return{name:'',decided:false};
+}
+function tieHtml(n){
+  const ev=byNum[n];if(!ev)return'';
+  const [la,lb]=sides(ev);
+  const A=resolveSide(la),B=resolveSide(lb);
+  const r=score(n),ps=r?parseScore(r):null;
+  const nmA=A.name||la, nmB=B.name||lb;
+  const wA=ps&&ps[0]>ps[1], wB=ps&&ps[1]>ps[0];
+  const isPt=/Portugal/.test(nmA)||/Portugal/.test(nmB);
+  return `<div class="tie ${isPt?'pt':''}">
+    <div class="side ${wA?'win':''}"><span class="nm">${nmA}</span><span class="sc">${ps?ps[0]:''}</span></div>
+    <div class="side ${wB?'win':''}"><span class="nm">${nmB}</span><span class="sc">${ps?ps[1]:''}</span></div>
+    <div class="when">J${(+n)} · ${fmtShort.format(ev.dt)}</div>
+  </div>`;
+}
+const ROUNDS=[
+  {t:'16 avos',ns:['073','076','075','074','077','078','079','080','081','082','083','084','085','086','087','088']},
+  {t:'Oitavos',ns:['090','091','089','092','093','094','095','096']},
+  {t:'Quartos',ns:['097','099','098','100']},
+  {t:'Meias',ns:['101','102']},
+  {t:'Final',ns:['104']},
+];
+function renderBracket(){
+  let html='<div class="bracket">';
+  for(const rd of ROUNDS){
+    html+=`<div class="round"><div class="round-t">${rd.t}</div>`;
+    html+=rd.ns.map(tieHtml).join('');
+    html+='</div>';
+  }
+  // campeão
+  const champ=winnerOf('104');
+  html+=`<div class="champ">
+    <div class="cup">🏆</div><div class="lbl">Campeão</div>
+    <div class="nm ${champ.name?'':'tbd'}">${champ.name||'por decidir'}</div>
+  </div>`;
+  html+='</div>';
+  document.getElementById('bracketWrap').innerHTML=html;
+}
+
 const g=id=>document.getElementById(id);
 function nextPT(){const now=Date.now();return EVENTS.filter(e=>isPT(e.summary)).sort((a,b)=>a.dt-b.dt).find(e=>e.dt.getTime()>now)||null;}
 function tick(){
@@ -277,13 +395,13 @@ function tick(){
   if(!j){box.classList.add('done');['cd','ch','cm','cs'].forEach(i=>g(i).textContent='—');g('countCap').textContent='Portugal já entrou em campo';return;}
   g('countCap').textContent='para '+stripFlags(j.summary).replace(/\s*\([^)]+\)\s*$/,'').replace(' vs ','–');
   let diff=Math.max(0,j.dt.getTime()-Date.now());
-  const d=Math.floor(diff/864e5);diff-=d*864e5;
-  const h=Math.floor(diff/36e5);diff-=h*36e5;
-  const m=Math.floor(diff/6e4);diff-=m*6e4;
-  const s=Math.floor(diff/1e3);
+  const d=Math.floor(diff/864e5);diff-=d*864e5;const h=Math.floor(diff/36e5);diff-=h*36e5;
+  const m=Math.floor(diff/6e4);diff-=m*6e4;const s=Math.floor(diff/1e3);
   g('cd').textContent=d;g('ch').textContent=String(h).padStart(2,'0');
   g('cm').textContent=String(m).padStart(2,'0');g('cs').textContent=String(s).padStart(2,'0');
 }
+function renderAllViews(){renderPT();renderAll();renderBracket();}
+
 async function load(){
   try{
     const [icsTxt,resJson]=await Promise.all([
@@ -291,8 +409,9 @@ async function load(){
       fetch(RES_URL,{cache:'no-cache'}).then(r=>r.ok?r.json():{}).catch(()=>({})),
     ]);
     EVENTS=parseICS(icsTxt).filter(e=>e.dt);
+    byNum={};EVENTS.forEach(e=>byNum[num(e.uid)]=e);
     RESULTS=resJson||{};
-    renderPT();renderAll();tick();
+    renderAllViews();tick();
   }catch(e){
     g('ptList').innerHTML='<div class="err">Não foi possível carregar o calendário.</div>';
     g('allList').innerHTML='';
@@ -300,16 +419,24 @@ async function load(){
 }
 load();
 setInterval(tick,1000);
-setInterval(()=>{fetch(RES_URL,{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j){RESULTS=j;renderPT();renderAll();}}).catch(()=>{});},3e5);
+setInterval(()=>{fetch(RES_URL,{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j){RESULTS=j;renderAllViews();}}).catch(()=>{});},3e5);
 
+/* interações */
 g('copyBtn').addEventListener('click',async function(){
   try{await navigator.clipboard.writeText(ICS_URL);this.textContent='Copiado';this.classList.add('ok');
     setTimeout(()=>{this.textContent='Copiar';this.classList.remove('ok')},1800);}catch(e){this.textContent='Falhou'}
 });
 g('subBtn').addEventListener('click',e=>{
-  e.preventDefault();
-  window.location.href=ICS_URL.replace(/^https?:/,'webcal:');
+  e.preventDefault();window.location.href=ICS_URL.replace(/^https?:/,'webcal:');
   setTimeout(()=>g('como').scrollIntoView({behavior:'smooth'}),400);
+});
+g('vCal').addEventListener('click',()=>{
+  g('vCal').setAttribute('aria-selected','true');g('vBracket').setAttribute('aria-selected','false');
+  g('calView').classList.remove('hidden');g('bracketView').classList.add('hidden');
+});
+g('vBracket').addEventListener('click',()=>{
+  g('vBracket').setAttribute('aria-selected','true');g('vCal').setAttribute('aria-selected','false');
+  g('bracketView').classList.remove('hidden');g('calView').classList.add('hidden');
 });
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
