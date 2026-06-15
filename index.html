@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,6 +76,25 @@
   .copy-row button{background:var(--surface0);color:var(--text);border:none;cursor:pointer;padding:10px 14px;font-family:'DM Sans';font-weight:500;font-size:.82rem;white-space:nowrap;transition:background .12s}
   .copy-row button:hover{background:var(--surface1)}
   .copy-row button.ok{color:var(--green)}
+
+  /* MODAL subscrição */
+  .modal-bg{position:fixed;inset:0;background:rgba(17,17,27,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+  .modal-bg.open{display:flex}
+  .modal{background:var(--base);border:1px solid var(--surface1);border-radius:18px;max-width:460px;width:100%;padding:26px 26px 22px;box-shadow:0 20px 60px rgba(0,0,0,.5);text-align:left;animation:pop .18s ease}
+  @keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+  .modal h3{font-size:1.25rem;font-weight:700;margin-bottom:6px}
+  .modal p{color:var(--subtext);font-size:.92rem;margin-bottom:18px}
+  .modal .x{position:absolute;top:18px;right:22px;background:none;border:none;color:var(--overlay);font-size:1.5rem;cursor:pointer;line-height:1;padding:4px}
+  .modal .x:hover{color:var(--text)}
+  .modal-link{display:flex;background:var(--mantle);border:1px solid var(--surface0);border-radius:10px;overflow:hidden;margin-bottom:18px}
+  .modal-link code{flex:1;font-family:'DM Mono',monospace;font-size:.76rem;color:var(--subtext);padding:11px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .modal-link button{background:var(--green);color:var(--crust);border:none;cursor:pointer;padding:11px 16px;font-family:'DM Sans';font-weight:700;font-size:.82rem;white-space:nowrap}
+  .modal-link button.ok{background:var(--surface1);color:var(--green)}
+  .modal-steps{font-size:.88rem;color:var(--subtext);line-height:1.7}
+  .modal-steps b{color:var(--text);font-weight:500}
+  .modal-apps{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .modal-apps a{flex:1;min-width:120px;text-align:center;background:var(--surface0);color:var(--text);border-radius:9px;padding:10px;text-decoration:none;font-size:.86rem;font-weight:500;border:1px solid transparent;transition:all .12s}
+  .modal-apps a:hover{border-color:var(--green);color:var(--green)}
 
   section{padding:34px 0;border-top:1px solid var(--surface0)}
   .sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap}
@@ -224,6 +243,29 @@
     </div>
   </header>
 
+  <!-- Modal de subscrição -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal" style="position:relative">
+      <button class="x" id="modalX" aria-label="Fechar">×</button>
+      <h3>Subscrever o calendário</h3>
+      <p>Copia o link e adiciona-o à tua app de calendário — recebes todos os jogos e atualizações automaticamente.</p>
+      <div class="modal-link">
+        <code id="modalUrl"></code>
+        <button id="modalCopy">Copiar</button>
+      </div>
+      <div class="modal-apps">
+        <a id="appGoogle" href="#" target="_blank" rel="noopener">Google Calendar</a>
+        <a id="appApple" href="#">Apple (webcal)</a>
+        <a href="#como" id="appGuide">Ver guia completo</a>
+      </div>
+      <div class="modal-steps" id="modalSteps">
+        <b>Google:</b> abre o link Google acima → cola o URL → adiciona.<br>
+        <b>iPhone/Mac:</b> toca em «Apple (webcal)» e confirma.<br>
+        <b>Outlook:</b> Adicionar calendário → Subscrever da Web → cola o URL.
+      </div>
+    </div>
+  </div>
+
   <section id="portugal">
     <div class="sec-h"><h2>Jogos de Portugal</h2><span class="tag">GRUPO K</span></div>
     <div id="ptList"><div class="loading">A carregar jogos…</div></div>
@@ -339,13 +381,13 @@ function flagImg(cps){
   const name=cps.map(c=>c.toString(16)).join('-');
   return `<img class="flag" src="${TWEMOJI_BASE}${name}.svg" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`;
 }
-/* converte um texto "🇵🇹 Portugal vs 🇨🇩 RD Congo" em HTML com <img> nas bandeiras */
+/* converte um texto "🇵🇹 Portugal vs 🇨🇩 RD Congo" em HTML com <img> nas bandeiras; escapa o texto */
 function withFlags(text){
   let out='',rest=text;
   while(rest.length){
     const f=flagToCodepoints(rest);
     if(f){out+=flagImg(f.cps);rest=f.rest;}
-    else{out+=rest[0];rest=rest.slice(1);}
+    else{out+=esc(rest[0]);rest=rest.slice(1);}
   }
   return out;
 }
@@ -361,9 +403,12 @@ function parseICS(text){
     const n=l.slice(0,i).split(';')[0],v=l.slice(i+1);
     if(n==='UID')c.uid=v;else if(n==='SUMMARY')c.summary=unesc(v);
     else if(n==='LOCATION')c.location=unesc(v);else if(n==='DTSTART')c.dt=parseDT(v);
+    else if(n==='DESCRIPTION')c.desc=unesc(v);
   }return ev;
 }
 function unesc(s){return s.replace(/\\n/g,' ').replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\\\/g,'\\');}
+/* escapa HTML antes de inserir em innerHTML (robustez) */
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function parseDT(v){const m=v.match(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})/);if(!m)return null;
   const[,Y,Mo,D,H,Mi,S]=m;return new Date(Date.UTC(+Y,+Mo-1,+D,+H-1,+Mi,+S));}
 function num(uid){const m=(uid||'').match(/-(\d+)@/);return m?m[1]:null;}
@@ -402,15 +447,23 @@ function rowHtml(ev){
   const {r,hl}=resInfo(num(ev.uid));
   const st=matchState(ev);
   const score=r?`<div class="score">${r}</div>`:`<div class="score empty">–</div>`;
-  const hlBtn=hl?`<a class="hl" href="${hl}" target="_blank" rel="noopener">${PLAY_SVG}<span>Resumo</span></a>`:'';
+  const hlBtn=hl?`<a class="hl" href="${esc(hl)}" target="_blank" rel="noopener">${PLAY_SVG}<span>Resumo</span></a>`:'';
   let badge='';
   if(st==='live')badge='<span class="badge live">Ao vivo</span>';
   else if(st==='fim')badge='<span class="badge fim">Fim</span>';
   else if(st==='soon')badge='<span class="badge soon">Em breve</span>';
+  const canais=channelsOf(ev);
+  const subline=[ev.location,canais].filter(Boolean).map(esc).join(' · ');
   return `<div class="m ${isPT(ev.summary)?'pt':''} ${r?'played':''} ${st==='live'?'live':''}">
     <div class="h">${fmtHour.format(ev.dt)}</div>
-    <div>${teamsHtml(ev)}<div class="sub">${ev.location||''}</div></div>
+    <div>${teamsHtml(ev)}<div class="sub">${subline}</div></div>
     <div class="right">${badge}${hlBtn}${score}</div></div>`;
+}
+/* extrai canais da DESCRIPTION ("...Transmissão: RTP, Sport TV.") */
+function channelsOf(ev){
+  if(!ev.desc)return'';
+  const m=ev.desc.match(/Transmiss[ãa]o:\s*([^.]+)/i);
+  return m?m[1].trim():'';
 }
 function renderPT(){
   const pt=EVENTS.filter(e=>isPT(e.summary)).sort((a,b)=>a.dt-b.dt);
@@ -563,7 +616,23 @@ g('copyBtn').addEventListener('click',async function(){
   try{await navigator.clipboard.writeText(ICS_URL);this.textContent='Copiado';this.classList.add('ok');
     setTimeout(()=>{this.textContent='Copiar';this.classList.remove('ok')},1800);}catch(e){this.textContent='Falhou'}
 });
-g('subBtn').addEventListener('click',e=>{e.preventDefault();window.location.href=ICS_URL.replace(/^https?:/,'webcal:');setTimeout(()=>g('como').scrollIntoView({behavior:'smooth'}),400);});
+/* Modal de subscrição */
+const webcalUrl=ICS_URL.replace(/^https?:/,'webcal:');
+const gcalUrl='https://calendar.google.com/calendar/r/settings/addbyurl?cid='+encodeURIComponent(ICS_URL);
+g('modalUrl').textContent=ICS_URL;
+g('appApple').href=webcalUrl;
+g('appGoogle').href=gcalUrl;
+function openModal(){g('modalBg').classList.add('open');}
+function closeModal(){g('modalBg').classList.remove('open');}
+g('subBtn').addEventListener('click',e=>{e.preventDefault();openModal();});
+g('modalX').addEventListener('click',closeModal);
+g('modalBg').addEventListener('click',e=>{if(e.target===g('modalBg'))closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+g('appGuide').addEventListener('click',()=>{closeModal();setTimeout(()=>g('como').scrollIntoView({behavior:'smooth'}),100);});
+g('modalCopy').addEventListener('click',async function(){
+  try{await navigator.clipboard.writeText(ICS_URL);this.textContent='Copiado ✓';this.classList.add('ok');
+    setTimeout(()=>{this.textContent='Copiar';this.classList.remove('ok')},1800);}catch(e){this.textContent='Falhou'}
+});
 
 function switchView(which){
   const map={cal:'calView',groups:'groupsView',bracket:'bracketView'};
