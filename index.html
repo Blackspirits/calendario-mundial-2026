@@ -8,6 +8,8 @@
 <link rel="canonical" href="https://blackspirits.github.io/calendario-mundial-2026/">
 <meta name="theme-color" content="#1e1e2e">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_PT">
@@ -147,6 +149,8 @@
   .champ .lbl{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--overlay)}
   .champ .nm{font-weight:700;font-size:1.1rem;color:var(--yellow);text-align:center}
   .champ .nm.tbd{color:var(--overlay);font-weight:400}
+  .third{max-width:280px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--surface0)}
+  .third .tie{border-left:3px solid var(--yellow)}
   @media(max-width:700px){
     #bracketView.full{position:static;left:auto;right:auto;margin:0;width:auto;padding:0}
     #bracketWrap{overflow-x:visible}
@@ -416,22 +420,38 @@ function renderAll(){
 
 /* ---------- CLASSIFICAÇÃO ---------- */
 function computeStandings(){
-  const G={};
+  const G={};            // grupo -> {equipa -> stats}
+  const H={};            // grupo -> {"A|B" -> {golosA, golosB}} para confronto direto
   for(const e of EVENTS){
     const s=stripFlags(e.summary);const m=s.match(/\(Grupo ([A-L])\)/);if(!m)continue;
     const g=m[1];const teams=s.split(' (')[0].split(' vs ').map(t=>t.trim());
     if(teams.length!==2)continue;
-    G[g]=G[g]||{};
+    G[g]=G[g]||{};H[g]=H[g]||{};
     for(const t of teams)G[g][t]=G[g][t]||{eq:t,raw:null,j:0,v:0,e:0,d:0,gm:0,gs:0,pts:0};
-    // guardar o texto com bandeira para render
     const rawTeams=e.summary.replace(/\s*\([^)]+\)\s*$/,'').split(' vs ').map(t=>t.trim());
     G[g][teams[0]].raw=rawTeams[0];G[g][teams[1]].raw=rawTeams[1];
     const {r}=resInfo(num(e.uid));const sc=r?ps(r):null;if(!sc)continue;
     const [a,b]=teams,[ga,gb]=sc,A=G[g][a],B=G[g][b];
     A.j++;B.j++;A.gm+=ga;A.gs+=gb;B.gm+=gb;B.gs+=ga;
     if(ga>gb){A.v++;B.d++;A.pts+=3;}else if(gb>ga){B.v++;A.d++;B.pts+=3;}else{A.e++;B.e++;A.pts++;B.pts++;}
+    H[g][a+'|'+b]={ga,gb};
   }
-  for(const g in G)G[g]=Object.values(G[g]).sort((x,y)=>y.pts-x.pts||(y.gm-y.gs)-(x.gm-x.gs)||y.gm-x.gm||x.eq.localeCompare(y.eq));
+  for(const g in G){
+    G[g]=Object.values(G[g]).sort((x,y)=>{
+      if(y.pts!==x.pts)return y.pts-x.pts;
+      // empate em pontos -> confronto direto primeiro
+      const d=H[g][x.eq+'|'+y.eq],i=H[g][y.eq+'|'+x.eq];
+      let gx=0,gy=0,jogou=false;
+      if(d){gx+=d.ga;gy+=d.gb;jogou=true;}
+      if(i){gx+=i.gb;gy+=i.ga;jogou=true;}
+      if(jogou && gx!==gy)return gy-gx;             // quem ganhou o confronto direto sobe
+      // depois: diferença de golos geral, golos marcados, nome
+      const dgx=x.gm-x.gs,dgy=y.gm-y.gs;
+      if(dgy!==dgx)return dgy-dgx;
+      if(y.gm!==x.gm)return y.gm-x.gm;
+      return x.eq.localeCompare(y.eq);
+    });
+  }
   return G;
 }
 function renderGroups(){
@@ -485,6 +505,11 @@ function renderBracket(){
   const champ=winnerOf('104');
   html+=`<div class="champ"><div class="cup">🏆</div><div class="lbl">Campeão</div><div class="nm ${champ.name?'':'tbd'}">${champ.name?withFlags(champ.name):'por decidir'}</div></div>`;
   html+='</div>';
+  // jogo do 3.º/4.º lugar (J103) — fora da árvore principal
+  const t3=byNum['103'];
+  if(t3){
+    html+=`<div class="third"><div class="round-t" style="text-align:left;margin-bottom:8px">Disputa do 3.º lugar</div>${tieHtml('103')}</div>`;
+  }
   document.getElementById('bracketWrap').innerHTML=html;
 }
 
