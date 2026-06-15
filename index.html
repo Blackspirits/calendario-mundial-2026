@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendário do Mundial 2026 · em português</title>
-<meta name="description" content="Calendário dos 104 jogos do Mundial FIFA 2026 em hora de Portugal Continental, com estádios, canais, resultados e quadro a eliminar.">
+<meta name="description" content="Calendário dos 104 jogos do Mundial FIFA 2026 em hora de Portugal Continental, com estádios, canais, resultados, classificação e quadro a eliminar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,6 +26,7 @@
   }
   .wrap{max-width:880px;margin:0 auto;padding:0 22px}
   ::selection{background:var(--green);color:var(--crust)}
+  img.flag{width:1.15em;height:1.15em;vertical-align:-.18em;margin-right:.05em;display:inline-block}
 
   header{padding:60px 0 34px;text-align:center}
   .eyebrow{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
@@ -60,21 +61,27 @@
   .day-h:first-child{margin-top:0}
   .m{display:grid;grid-template-columns:46px 1fr auto;gap:14px;align-items:center;background:var(--mantle);border:1px solid var(--surface0);border-radius:11px;padding:12px 15px;margin-bottom:8px}
   .m.pt{border-left:3px solid var(--peach)}
-  .m.played{opacity:.82}
+  .m.played{opacity:.85}
+  .m.live{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
   .m .h{font-family:'DM Mono',monospace;font-size:.92rem;color:var(--subtext);font-variant-numeric:tabular-nums;text-align:center}
   .m .teams{font-weight:500;font-size:1rem}
   .m .teams .g{color:var(--overlay);font-weight:400;font-size:.82rem}
   .m .sub{font-size:.78rem;color:var(--overlay);margin-top:2px}
+  .m .right{display:flex;align-items:center;gap:8px}
   .m .score{font-family:'DM Mono',monospace;font-weight:500;font-size:1.05rem;color:var(--green);background:var(--surface0);border-radius:7px;padding:3px 10px;min-width:48px;text-align:center}
   .m .score.empty{color:var(--overlay);background:transparent;border:1px dashed var(--surface1)}
-  .m .right{display:flex;align-items:center;gap:8px}
+  .badge{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:5px}
+  .badge.fim{background:var(--surface0);color:var(--overlay)}
+  .badge.live{background:var(--red);color:var(--crust);animation:pulse 1.4s ease-in-out infinite}
+  .badge.soon{background:rgba(249,226,175,.15);color:var(--yellow)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
   .hl{display:inline-flex;align-items:center;gap:5px;background:transparent;border:1px solid var(--surface1);color:var(--mauve);border-radius:7px;padding:4px 9px;font-size:.78rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:all .12s}
   .hl:hover{background:var(--mauve);color:var(--crust);border-color:var(--mauve)}
   .hl svg{width:11px;height:11px}
   @media(max-width:560px){.m{grid-template-columns:42px 1fr auto;gap:10px}.m .sub{display:none}.hl span{display:none}.hl{padding:5px 7px}}
 
   /* view switch */
-  .vswitch{display:inline-flex;background:var(--mantle);border:1px solid var(--surface0);border-radius:10px;padding:4px;gap:4px;margin-left:auto}
+  .vswitch{display:inline-flex;background:var(--mantle);border:1px solid var(--surface0);border-radius:10px;padding:4px;gap:4px;margin-left:auto;flex-wrap:wrap}
   .vswitch button{background:transparent;border:none;color:var(--subtext);font-family:'DM Sans';font-weight:500;font-size:.86rem;padding:7px 14px;border-radius:7px;cursor:pointer;transition:all .12s}
   .vswitch button[aria-selected="true"]{background:var(--surface0);color:var(--text)}
 
@@ -83,16 +90,31 @@
   .f[aria-pressed="true"]{background:var(--surface0);color:var(--text);border-color:var(--surface1)}
   .f.ptf[aria-pressed="true"]{background:var(--peach);color:var(--crust);border-color:var(--peach)}
 
+  /* STANDINGS */
+  .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+  .gcard{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:14px 16px}
+  .gcard.pt{border-left:3px solid var(--peach)}
+  .gcard h3{font-size:.95rem;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between}
+  .gcard h3 .gt{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--overlay);font-weight:400}
+  table{width:100%;border-collapse:collapse;font-size:.84rem}
+  th{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--overlay);font-weight:400;text-align:center;padding:3px 4px}
+  th.l,td.l{text-align:left}
+  td{padding:5px 4px;text-align:center;font-variant-numeric:tabular-nums;color:var(--subtext);border-top:1px solid var(--surface0)}
+  td.eq{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+  td.pts{color:var(--text);font-weight:700;font-family:'DM Mono',monospace}
+  tr.q td{position:relative}
+  tr.q td.pos{color:var(--green);font-weight:700}
+  tr.q3 td.pos{color:var(--yellow)}
+  .pos{font-family:'DM Mono',monospace;width:18px}
+  .leg{font-size:.74rem;color:var(--overlay);margin-top:14px;display:flex;gap:16px;flex-wrap:wrap}
+  .leg .dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle}
+
   /* BRACKET */
-  #bracketView.full{
-    position:relative;left:50%;right:50%;
-    margin-left:-50vw;margin-right:-50vw;width:100vw;
-    padding:0 max(22px,calc((100vw - 1280px)/2));
-  }
+  #bracketView.full{position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw;padding:0 max(22px,calc((100vw - 1280px)/2))}
   #bracketWrap{overflow-x:auto;padding-bottom:8px}
   .bracket{display:flex;gap:14px;min-width:max-content;padding:4px;align-items:stretch}
   .round{display:flex;flex-direction:column;justify-content:space-around;gap:8px;flex:1;min-width:150px;max-width:210px}
-  .round-t{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--overlay);text-align:center;margin-bottom:4px;position:sticky;top:0}
+  .round-t{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--overlay);text-align:center;margin-bottom:4px}
   .tie{background:var(--mantle);border:1px solid var(--surface0);border-radius:9px;padding:8px 10px;font-size:.82rem}
   .tie.pt{border-left:3px solid var(--peach)}
   .tie .side{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
@@ -106,16 +128,15 @@
   .champ .lbl{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--overlay)}
   .champ .nm{font-weight:700;font-size:1.1rem;color:var(--yellow);text-align:center}
   .champ .nm.tbd{color:var(--overlay);font-weight:400}
-
-  /* MOBILE: lista vertical por ronda, sem scroll horizontal */
   @media(max-width:700px){
     #bracketView.full{position:static;left:auto;right:auto;margin:0;width:auto;padding:0}
     #bracketWrap{overflow-x:visible}
     .bracket{flex-direction:column;min-width:0;gap:0}
     .round{max-width:none;min-width:0;gap:8px;margin-bottom:22px}
-    .round-t{text-align:left;font-size:.72rem;color:var(--peach);margin-bottom:10px;position:static}
+    .round-t{text-align:left;font-size:.72rem;color:var(--peach);margin-bottom:10px}
     .champ{flex-direction:row;justify-content:center;gap:14px;padding:10px;background:var(--mantle);border:1px solid var(--surface0);border-radius:12px}
     .champ .cup{font-size:2rem}
+    .groups{grid-template-columns:1fr}
   }
 
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
@@ -139,7 +160,7 @@
   footer{padding:34px 0 56px;text-align:center;color:var(--overlay);font-size:.85rem;border-top:1px solid var(--surface0)}
   footer a{color:var(--subtext);text-decoration:none;border-bottom:1px solid var(--surface1)}
   footer a:hover{color:var(--green);border-color:var(--green)}
-  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}.badge.live{animation:none}}
 </style>
 </head>
 <body>
@@ -148,7 +169,7 @@
   <header>
     <div class="eyebrow">Mundial FIFA 2026 · 11 jun – 19 jul</div>
     <h1>Todos os jogos no teu calendário.<br><span class="em">Hora de Portugal.</span></h1>
-    <p class="lead">Os 104 jogos com estádio, cidade, canais e resultados — atualiza-se sozinho quando há mudanças. Subscreve uma vez e esquece.</p>
+    <p class="lead">Os 104 jogos com estádio, cidade, canais, resultados e classificação — atualiza-se sozinho. Subscreve uma vez e esquece.</p>
 
     <div class="count" id="count" aria-label="Contagem para o próximo jogo de Portugal">
       <div class="seg"><div class="n" id="cd">–</div><div class="l">dias</div></div>
@@ -180,18 +201,27 @@
       <h2>Jogos</h2>
       <div class="vswitch" role="tablist">
         <button id="vCal" aria-selected="true">Calendário</button>
+        <button id="vGroups" aria-selected="false">Classificação</button>
         <button id="vBracket" aria-selected="false">Quadro a eliminar</button>
       </div>
     </div>
 
     <div id="calView">
       <div class="filters" id="filters">
-        <button class="f ptf" data-f="PT" aria-pressed="false">🇵🇹 Portugal</button>
+        <button class="f ptf" data-f="PT" aria-pressed="false">Portugal</button>
         <button class="f" data-f="all" aria-pressed="true">Todos</button>
         <button class="f" data-f="grupos" aria-pressed="false">Fase de grupos</button>
         <button class="f" data-f="elim" aria-pressed="false">Eliminatórias</button>
       </div>
       <div id="allList"><div class="loading">A carregar jogos…</div></div>
+    </div>
+
+    <div id="groupsView" class="hidden">
+      <div class="groups" id="groupsWrap"><div class="loading">A calcular classificação…</div></div>
+      <div class="leg">
+        <span><span class="dot" style="background:var(--green)"></span>Apura-se (1.º e 2.º)</span>
+        <span><span class="dot" style="background:var(--yellow)"></span>3.º (pode apurar-se)</span>
+      </div>
     </div>
 
     <div id="bracketView" class="hidden">
@@ -242,8 +272,9 @@
 
   <footer>
     Dados factuais de calendário desportivo · licença <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a><br>
+    Bandeiras por <a href="https://github.com/twitter/twemoji">Twemoji</a> (CC-BY 4.0) ·
     Mantido por <a href="https://github.com/BlackSpirits">BlackSpirits</a> ·
-    <a href="https://github.com/BlackSpirits/calendario-mundial-2026">repositório &amp; erros</a>
+    <a href="https://github.com/BlackSpirits/calendario-mundial-2026">repositório</a>
   </footer>
 </div>
 
@@ -253,6 +284,37 @@ const ICS_URL = location.origin + BASE + "mundial-2026.ics";
 const RES_URL = location.origin + BASE + "resultados.json";
 document.getElementById('icsUrl').textContent = ICS_URL;
 
+/* ---------- bandeiras: Twemoji SVG por CDN (funciona no Windows) ---------- */
+const TWEMOJI_BASE="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/";
+function flagToCodepoints(str){
+  // extrai o cluster de bandeira inicial (regional indicators ou tag sequence) e devolve [codepoints, restante]
+  const cps=[...str];
+  let i=0;const flag=[];
+  // regional indicator pair
+  if(cps[i]&&cps[i].codePointAt(0)>=0x1F1E6&&cps[i].codePointAt(0)<=0x1F1FF){
+    flag.push(cps[i].codePointAt(0));i++;
+    if(cps[i]&&cps[i].codePointAt(0)>=0x1F1E6&&cps[i].codePointAt(0)<=0x1F1FF){flag.push(cps[i].codePointAt(0));i++;}
+  } else if(cps[i]&&cps[i].codePointAt(0)===0x1F3F4){ // bandeira preta + tags
+    flag.push(cps[i].codePointAt(0));i++;
+    while(cps[i]&&cps[i].codePointAt(0)>=0xE0000&&cps[i].codePointAt(0)<=0xE007F){flag.push(cps[i].codePointAt(0));i++;}
+  } else return null;
+  return {cps:flag,rest:cps.slice(i).join('')};
+}
+function flagImg(cps){
+  const name=cps.map(c=>c.toString(16)).join('-');
+  return `<img class="flag" src="${TWEMOJI_BASE}${name}.svg" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode(''))">`;
+}
+/* converte um texto "🇵🇹 Portugal vs 🇨🇩 RD Congo" em HTML com <img> nas bandeiras */
+function withFlags(text){
+  let out='',rest=text;
+  while(rest.length){
+    const f=flagToCodepoints(rest);
+    if(f){out+=flagImg(f.cps);rest=f.rest;}
+    else{out+=rest[0];rest=rest.slice(1);}
+  }
+  return out;
+}
+
 function parseICS(text){
   const raw=text.split(/\r\n|\n|\r/);const lines=[];
   for(const l of raw){if(l[0]===' '||l[0]==='\t')lines[lines.length-1]+=l.slice(1);else lines.push(l);}
@@ -260,8 +322,7 @@ function parseICS(text){
   for(const l of lines){
     if(l==='BEGIN:VEVENT'){c={};continue;}
     if(l==='END:VEVENT'){if(c)ev.push(c);c=null;continue;}
-    if(!c)continue;
-    const i=l.indexOf(':');if(i<0)continue;
+    if(!c)continue;const i=l.indexOf(':');if(i<0)continue;
     const n=l.slice(0,i).split(';')[0],v=l.slice(i+1);
     if(n==='UID')c.uid=v;else if(n==='SUMMARY')c.summary=unesc(v);
     else if(n==='LOCATION')c.location=unesc(v);else if(n==='DTSTART')c.dt=parseDT(v);
@@ -282,39 +343,39 @@ const fmtShort=new Intl.DateTimeFormat('pt-PT',{day:'2-digit',month:'2-digit',ti
 let EVENTS=[], RESULTS={}, curFilter='all', byNum={};
 function isElim(s){return /Dezasseis|Oitavos|Quartos|Meia|lugar|Final/.test(s);}
 function isPT(s){return /Portugal/.test(s);}
-
-/* lê resultado: aceita objeto {r,hl} ou string antiga "2-0" */
-function resInfo(n){
-  const v=RESULTS[n];
-  if(!v)return{r:'',hl:''};
-  if(typeof v==='string')return{r:v.trim(),hl:''};
-  return{r:(v.r||'').trim(),hl:(v.hl||'').trim()};
-}
+function resInfo(n){const v=RESULTS[n];if(!v)return{r:'',hl:''};if(typeof v==='string')return{r:v.trim(),hl:''};return{r:(v.r||'').trim(),hl:(v.hl||'').trim()};}
+function ps(r){const m=r.match(/(\d+)\s*[-–:x]\s*(\d+)/);return m?[+m[1],+m[2]]:null;}
 const PLAY_SVG='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
 
-/* extrai as duas equipas/labels de um summary (sem emoji, sem grupo) */
-function sides(ev){
-  let s=stripFlags(ev.summary).replace(/\s*\([^)]+\)\s*$/,'');
-  s=s.replace(/^Final\s*—\s*/,'');
-  const parts=s.split(' vs ');
-  if(parts.length===2)return[parts[0].trim(),parts[1].trim()];
-  return[s.trim(),''];
+/* estado do jogo: soon (faltam <2h), live (começou há <2h e sem resultado), fim (tem resultado) */
+function matchState(ev){
+  const {r}=resInfo(num(ev.uid));
+  if(r)return'fim';
+  const now=Date.now(),start=ev.dt.getTime();
+  if(now>=start && now<start+2.5*36e5)return'live';
+  if(now<start && start-now<2*36e5)return'soon';
+  return'';
 }
+
 function teamsHtml(ev){
   const clean=stripFlags(ev.summary);
   const gm=clean.match(/\(([^)]+)\)\s*$/);const grupo=gm?gm[1]:'';
-  const main=clean.replace(/\s*\([^)]+\)\s*$/,'').replace(' vs ',' – ');
-  return `<div class="teams">${main}${grupo?` <span class="g">${grupo}</span>`:''}</div>`;
+  const main=ev.summary.replace(/\s*\([^)]+\)\s*$/,'').replace(' vs ',' – ');
+  return `<div class="teams">${withFlags(main)}${grupo?` <span class="g">${grupo}</span>`:''}</div>`;
 }
 function rowHtml(ev){
   const {r,hl}=resInfo(num(ev.uid));
-  const played=!!r;
+  const st=matchState(ev);
   const score=r?`<div class="score">${r}</div>`:`<div class="score empty">–</div>`;
   const hlBtn=hl?`<a class="hl" href="${hl}" target="_blank" rel="noopener">${PLAY_SVG}<span>Resumo</span></a>`:'';
-  return `<div class="m ${isPT(ev.summary)?'pt':''} ${played?'played':''}">
+  let badge='';
+  if(st==='live')badge='<span class="badge live">Ao vivo</span>';
+  else if(st==='fim')badge='<span class="badge fim">Fim</span>';
+  else if(st==='soon')badge='<span class="badge soon">Em breve</span>';
+  return `<div class="m ${isPT(ev.summary)?'pt':''} ${r?'played':''} ${st==='live'?'live':''}">
     <div class="h">${fmtHour.format(ev.dt)}</div>
     <div>${teamsHtml(ev)}<div class="sub">${ev.location||''}</div></div>
-    <div class="right">${hlBtn}${score}</div></div>`;
+    <div class="right">${badge}${hlBtn}${score}</div></div>`;
 }
 function renderPT(){
   const pt=EVENTS.filter(e=>isPT(e.summary)).sort((a,b)=>a.dt-b.dt);
@@ -334,50 +395,63 @@ function renderAll(){
   document.getElementById('allList').innerHTML=html||'<div class="err">Sem jogos.</div>';
 }
 
-/* ---------- QUADRO A ELIMINAR ---------- */
-/* resolve o nome de cada lado: se referir "Vencedor J##"/"Perdedor J##", segue o resultado */
-function resolveSide(label){
-  const mW=label.match(/Vencedor J(\d+)/i);
-  const mL=label.match(/Perdedor J(\d+)/i);
-  if(mW)return winnerOf(mW[1].padStart(3,'0'));
-  if(mL)return loserOf(mL[1].padStart(3,'0'));
-  return {name:label,decided:false}; // placeholder de grupo (ex.: "2.º do Grupo A")
+/* ---------- CLASSIFICAÇÃO ---------- */
+function computeStandings(){
+  const G={};
+  for(const e of EVENTS){
+    const s=stripFlags(e.summary);const m=s.match(/\(Grupo ([A-L])\)/);if(!m)continue;
+    const g=m[1];const teams=s.split(' (')[0].split(' vs ').map(t=>t.trim());
+    if(teams.length!==2)continue;
+    G[g]=G[g]||{};
+    for(const t of teams)G[g][t]=G[g][t]||{eq:t,raw:null,j:0,v:0,e:0,d:0,gm:0,gs:0,pts:0};
+    // guardar o texto com bandeira para render
+    const rawTeams=e.summary.replace(/\s*\([^)]+\)\s*$/,'').split(' vs ').map(t=>t.trim());
+    G[g][teams[0]].raw=rawTeams[0];G[g][teams[1]].raw=rawTeams[1];
+    const {r}=resInfo(num(e.uid));const sc=r?ps(r):null;if(!sc)continue;
+    const [a,b]=teams,[ga,gb]=sc,A=G[g][a],B=G[g][b];
+    A.j++;B.j++;A.gm+=ga;A.gs+=gb;B.gm+=gb;B.gs+=ga;
+    if(ga>gb){A.v++;B.d++;A.pts+=3;}else if(gb>ga){B.v++;A.d++;B.pts+=3;}else{A.e++;B.e++;A.pts++;B.pts++;}
+  }
+  for(const g in G)G[g]=Object.values(G[g]).sort((x,y)=>y.pts-x.pts||(y.gm-y.gs)-(x.gm-x.gs)||y.gm-x.gm||x.eq.localeCompare(y.eq));
+  return G;
 }
+function renderGroups(){
+  const S=computeStandings();
+  const keys=Object.keys(S).sort();
+  if(!keys.length){document.getElementById('groupsWrap').innerHTML='<div class="err">Sem grupos.</div>';return;}
+  let html='';
+  for(const g of keys){
+    const isK=g==='K';
+    html+=`<div class="gcard ${isK?'pt':''}"><h3>Grupo ${g}<span class="gt">PTS</span></h3>
+      <table><thead><tr><th></th><th class="l">Equipa</th><th>J</th><th>V</th><th>E</th><th>D</th><th>GM</th><th>GS</th><th>P</th></tr></thead><tbody>`;
+    S[g].forEach((t,i)=>{
+      const cls=i<2?'q':(i===2?'q3':'');
+      html+=`<tr class="${cls}"><td class="pos">${i+1}</td><td class="eq l">${withFlags(t.raw||t.eq)}</td>
+        <td>${t.j}</td><td>${t.v}</td><td>${t.e}</td><td>${t.d}</td><td>${t.gm}</td><td>${t.gs}</td><td class="pts">${t.pts}</td></tr>`;
+    });
+    html+='</tbody></table></div>';
+  }
+  document.getElementById('groupsWrap').innerHTML=html;
+}
+
+/* ---------- BRACKET ---------- */
+function sides(ev){let s=stripFlags(ev.summary).replace(/\s*\([^)]+\)\s*$/,'').replace(/^Final\s*—\s*/,'');const p=s.split(' vs ');return p.length===2?[p[0].trim(),p[1].trim()]:[s.trim(),''];}
 function score(n){return resInfo(n).r;}
-function parseScore(r){const m=r.match(/(\d+)\s*[-–:x]\s*(\d+)/);return m?[+m[1],+m[2]]:null;}
-function tieResolved(n){ // devolve {a,b,sa,sb,wa,wb} se houver resultado
-  const ev=byNum[n];if(!ev)return null;
-  const [la,lb]=sides(ev);
-  const A=resolveSide(la),B=resolveSide(lb);
-  const r=score(n),ps=r?parseScore(r):null;
-  let wa=false,wb=false;
-  if(ps){if(ps[0]>ps[1])wa=true;else if(ps[1]>ps[0])wb=true;}
-  return {A,B,sa:ps?ps[0]:'',sb:ps?ps[1]:'',wa,wb,r};
-}
-function winnerOf(n){
-  const t=tieResolved(n);if(!t)return{name:'',decided:false};
-  if(t.wa)return{...t.A,decided:t.A.decided!==false};
-  if(t.wb)return{...t.B,decided:t.B.decided!==false};
-  return{name:'',decided:false};
-}
-function loserOf(n){
-  const t=tieResolved(n);if(!t)return{name:'',decided:false};
-  if(t.wa)return{...t.B};if(t.wb)return{...t.A};
-  return{name:'',decided:false};
-}
+function resolveSide(label){const W=label.match(/Vencedor J(\d+)/i),L=label.match(/Perdedor J(\d+)/i);if(W)return winnerOf(W[1].padStart(3,'0'));if(L)return loserOf(L[1].padStart(3,'0'));return{name:label};}
+function tieResolved(n){const ev=byNum[n];if(!ev)return null;const[la,lb]=sides(ev);const A=resolveSide(la),B=resolveSide(lb);const r=score(n),p=r?ps(r):null;let wa=0,wb=0;if(p){if(p[0]>p[1])wa=1;else if(p[1]>p[0])wb=1;}return{A,B,wa,wb};}
+function winnerOf(n){const t=tieResolved(n);if(!t)return{name:''};if(t.wa)return t.A;if(t.wb)return t.B;return{name:''};}
+function loserOf(n){const t=tieResolved(n);if(!t)return{name:''};if(t.wa)return t.B;if(t.wb)return t.A;return{name:''};}
 function tieHtml(n){
   const ev=byNum[n];if(!ev)return'';
-  const [la,lb]=sides(ev);
-  const A=resolveSide(la),B=resolveSide(lb);
-  const r=score(n),ps=r?parseScore(r):null;
-  const nmA=A.name||la, nmB=B.name||lb;
-  const wA=ps&&ps[0]>ps[1], wB=ps&&ps[1]>ps[0];
+  const[la,lb]=sides(ev);const A=resolveSide(la),B=resolveSide(lb);
+  const r=score(n),p=r?ps(r):null;
+  const nmA=A.name||la,nmB=B.name||lb;
+  const wA=p&&p[0]>p[1],wB=p&&p[1]>p[0];
   const isPt=/Portugal/.test(nmA)||/Portugal/.test(nmB);
   return `<div class="tie ${isPt?'pt':''}">
-    <div class="side ${wA?'win':''}"><span class="nm">${nmA}</span><span class="sc">${ps?ps[0]:''}</span></div>
-    <div class="side ${wB?'win':''}"><span class="nm">${nmB}</span><span class="sc">${ps?ps[1]:''}</span></div>
-    <div class="when">J${(+n)} · ${fmtShort.format(ev.dt)}</div>
-  </div>`;
+    <div class="side ${wA?'win':''}"><span class="nm">${withFlags(nmA)}</span><span class="sc">${p?p[0]:''}</span></div>
+    <div class="side ${wB?'win':''}"><span class="nm">${withFlags(nmB)}</span><span class="sc">${p?p[1]:''}</span></div>
+    <div class="when">J${(+n)} · ${fmtShort.format(ev.dt)}</div></div>`;
 }
 const ROUNDS=[
   {t:'16 avos',ns:['073','076','075','074','077','078','079','080','081','082','083','084','085','086','087','088']},
@@ -388,17 +462,9 @@ const ROUNDS=[
 ];
 function renderBracket(){
   let html='<div class="bracket">';
-  for(const rd of ROUNDS){
-    html+=`<div class="round"><div class="round-t">${rd.t}</div>`;
-    html+=rd.ns.map(tieHtml).join('');
-    html+='</div>';
-  }
-  // campeão
+  for(const rd of ROUNDS){html+=`<div class="round"><div class="round-t">${rd.t}</div>`+rd.ns.map(tieHtml).join('')+'</div>';}
   const champ=winnerOf('104');
-  html+=`<div class="champ">
-    <div class="cup">🏆</div><div class="lbl">Campeão</div>
-    <div class="nm ${champ.name?'':'tbd'}">${champ.name||'por decidir'}</div>
-  </div>`;
+  html+=`<div class="champ"><div class="cup">🏆</div><div class="lbl">Campeão</div><div class="nm ${champ.name?'':'tbd'}">${champ.name?withFlags(champ.name):'por decidir'}</div></div>`;
   html+='</div>';
   document.getElementById('bracketWrap').innerHTML=html;
 }
@@ -416,7 +482,7 @@ function tick(){
   g('cd').textContent=d;g('ch').textContent=String(h).padStart(2,'0');
   g('cm').textContent=String(m).padStart(2,'0');g('cs').textContent=String(s).padStart(2,'0');
 }
-function renderAllViews(){renderPT();renderAll();renderBracket();}
+function renderAllViews(){renderPT();renderAll();renderGroups();renderBracket();}
 
 async function load(){
   try{
@@ -429,31 +495,32 @@ async function load(){
     RESULTS=resJson||{};
     renderAllViews();tick();
   }catch(e){
-    g('ptList').innerHTML='<div class="err">Não foi possível carregar o calendário.</div>';
-    g('allList').innerHTML='';
+    g('ptList').innerHTML='<div class="err">Não foi possível carregar o calendário.</div>';g('allList').innerHTML='';
   }
 }
 load();
 setInterval(tick,1000);
-setInterval(()=>{fetch(RES_URL,{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j){RESULTS=j;renderAllViews();}}).catch(()=>{});},3e5);
+/* re-render periódico: atualiza estado ao vivo e resultados (caso edites o JSON) */
+setInterval(()=>{fetch(RES_URL,{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j)RESULTS=j;renderAllViews();}).catch(()=>renderAllViews());},6e4);
 
-/* interações */
 g('copyBtn').addEventListener('click',async function(){
   try{await navigator.clipboard.writeText(ICS_URL);this.textContent='Copiado';this.classList.add('ok');
     setTimeout(()=>{this.textContent='Copiar';this.classList.remove('ok')},1800);}catch(e){this.textContent='Falhou'}
 });
-g('subBtn').addEventListener('click',e=>{
-  e.preventDefault();window.location.href=ICS_URL.replace(/^https?:/,'webcal:');
-  setTimeout(()=>g('como').scrollIntoView({behavior:'smooth'}),400);
-});
-g('vCal').addEventListener('click',()=>{
-  g('vCal').setAttribute('aria-selected','true');g('vBracket').setAttribute('aria-selected','false');
-  g('calView').classList.remove('hidden');g('bracketView').classList.add('hidden');g('bracketView').classList.remove('full');
-});
-g('vBracket').addEventListener('click',()=>{
-  g('vBracket').setAttribute('aria-selected','true');g('vCal').setAttribute('aria-selected','false');
-  g('bracketView').classList.remove('hidden');g('bracketView').classList.add('full');g('calView').classList.add('hidden');
-});
+g('subBtn').addEventListener('click',e=>{e.preventDefault();window.location.href=ICS_URL.replace(/^https?:/,'webcal:');setTimeout(()=>g('como').scrollIntoView({behavior:'smooth'}),400);});
+
+function switchView(which){
+  const map={cal:'calView',groups:'groupsView',bracket:'bracketView'};
+  for(const k in map)g(map[k]).classList.add('hidden');
+  g(map[which]).classList.remove('hidden');
+  g('bracketView').classList.toggle('full',which==='bracket');
+  g('vCal').setAttribute('aria-selected',which==='cal');
+  g('vGroups').setAttribute('aria-selected',which==='groups');
+  g('vBracket').setAttribute('aria-selected',which==='bracket');
+}
+g('vCal').addEventListener('click',()=>switchView('cal'));
+g('vGroups').addEventListener('click',()=>switchView('groups'));
+g('vBracket').addEventListener('click',()=>switchView('bracket'));
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
   t.setAttribute('aria-selected','true');
