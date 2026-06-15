@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendário do Mundial 2026 · em português</title>
-<meta name="description" content="Calendário dos 104 jogos do Mundial FIFA 2026 em hora de Portugal Continental, com estádios, canais, resultados, classificação e quadro a eliminar.">
+<meta name="description" content="Os 104 jogos do Mundial FIFA 2026 em hora de Portugal, com estádios, canais e resultados.">
 <link rel="canonical" href="https://blackspirits.github.io/calendario-mundial-2026/">
 <meta name="theme-color" content="#1e1e2e">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <!-- Open Graph -->
@@ -15,7 +17,7 @@
 <meta property="og:locale" content="pt_PT">
 <meta property="og:site_name" content="Calendário do Mundial 2026">
 <meta property="og:title" content="Calendário do Mundial 2026 · em português">
-<meta property="og:description" content="Os 104 jogos do Mundial FIFA 2026 em hora de Portugal, com estádios, canais, resultados e classificação. Subscreve no Google, Apple ou Outlook.">
+<meta property="og:description" content="Os 104 jogos do Mundial FIFA 2026 em hora de Portugal, com estádios, canais e resultados.">
 <meta property="og:url" content="https://blackspirits.github.io/calendario-mundial-2026/">
 <meta property="og:image" content="https://blackspirits.github.io/calendario-mundial-2026/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,7 +26,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Calendário do Mundial 2026 · em português">
-<meta name="twitter:description" content="Os 104 jogos do Mundial FIFA 2026 em hora de Portugal, com estádios, canais, resultados e classificação.">
+<meta name="twitter:description" content="Os 104 jogos do Mundial FIFA 2026 em hora de Portugal, com estádios, canais e resultados.">
 <meta name="twitter:image" content="https://blackspirits.github.io/calendario-mundial-2026/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +44,7 @@
   body{
     background:var(--base);color:var(--text);
     font-family:'DM Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
     background-image:radial-gradient(900px 500px at 80% -10%,rgba(166,227,161,.07),transparent 60%),
                      radial-gradient(700px 400px at -10% 10%,rgba(203,166,247,.06),transparent 55%);
   }
@@ -112,8 +115,8 @@
   .f.ptf[aria-pressed="true"]{background:var(--peach);color:var(--crust);border-color:var(--peach)}
 
   /* STANDINGS */
-  .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
-  .gcard{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:14px 16px}
+  .groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .gcard{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:14px 16px;overflow-x:auto}
   .gcard.pt{border-left:3px solid var(--peach)}
   .gcard h3{font-size:.95rem;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between}
   .gcard h3 .gt{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--overlay);font-weight:400}
@@ -160,6 +163,12 @@
     .champ{flex-direction:row;justify-content:center;gap:14px;padding:10px;background:var(--mantle);border:1px solid var(--surface0);border-radius:12px}
     .champ .cup{font-size:2rem}
     .groups{grid-template-columns:1fr}
+    table{font-size:.8rem}
+    th,td{padding:4px 3px}
+    td.eq{max-width:110px}
+    .gcard{padding:12px 12px}
+    .m .teams{font-size:.94rem}
+    .badge{font-size:.56rem;padding:2px 5px}
   }
 
   .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
