@@ -4,7 +4,9 @@ Calendário (`.ics`) com todos os jogos do Campeonato do Mundo FIFA 2026, em **h
 
 * Inclui os **104 jogos** (72 da fase de grupos + 32 da fase a eliminar).
 * Pode ser **subscrito** no Google Calendar, Apple Calendar (iPhone/Mac), Outlook, etc. — assim, qualquer atualização ao ficheiro (adversários da fase a eliminar, alterações de horário ou mudanças de canal) aparece automaticamente nos teus dispositivos.
-* Fonte da informação: [A Bola — Mundial 2026: todos os jogos, horas, transmissões e grupos](https://www.abola.pt/noticias/mundial-2026-todos-os-jogos-horas-transmissoes-e-grupos-resultados-classificacao-calendario-onde-ver-2026051915373936358).
+* Fontes:
+  * Calendário, datas e resultados: [A Bola — Mundial 2026](https://www.abola.pt/noticias/mundial-2026-todos-os-jogos-horas-transmissoes-e-grupos-resultados-classificacao-calendario-onde-ver-2026051915373936358), cruzada com a tabela oficial da FIFA para os estádios.
+  * Canais de transmissão em Portugal: A Bola e operadores (Sport TV, RTP, SIC, TVI, LiveModeTV).
 
 ## URL para subscrever
 
@@ -20,7 +22,7 @@ Copia este URL — vais utilizá-lo nas instruções abaixo.
 
 ### Google Calendar (computador)
 
-1. Abre o [Google Calendar](https://calendar.google.com/) no browser.
+1. Abre o [Google Calendar](https://calendar.google.com/) no navegador.
 2. Na barra lateral esquerda, ao lado de **Outros calendários**, clica no **+**.
 3. Escolhe **A partir do URL** / **From URL**.
 4. Cola o URL acima e clica em **Adicionar calendário**.
