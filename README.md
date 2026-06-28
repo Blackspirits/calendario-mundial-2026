@@ -1,8 +1,9 @@
 # Calendário do Mundial 2026 (em português)
 
-Calendário (`.ics`) com todos os jogos do Campeonato do Mundo FIFA 2026, em **hora de Portugal Continental**, indicando os canais portugueses previstos para cada jogo.
+Calendário (`.ics`) com todos os jogos do Campeonato do Mundo FIFA 2026, em **hora de Portugal Continental**, indicando os canais portugueses previstos para cada jogo, resultados e fase a eliminar atualizada.
 
 * Inclui os **104 jogos** (72 da fase de grupos + 32 da fase a eliminar).
+* A página inclui classificação por grupo com **DG** (diferença de golos) e **últimos resultados**.
 * Pode ser **subscrito** no Google Calendar, Apple Calendar (iPhone/Mac), Outlook, etc. — assim, qualquer atualização ao ficheiro (adversários da fase a eliminar, alterações de horário ou mudanças de canal) aparece automaticamente nos teus dispositivos.
 * Fontes:
   * Calendário, datas e resultados: [A Bola — Mundial 2026](https://www.abola.pt/noticias/mundial-2026-todos-os-jogos-horas-transmissoes-e-grupos-resultados-classificacao-calendario-onde-ver-2026051915373936358), cruzada com a tabela oficial da FIFA para os estádios.
@@ -54,7 +55,7 @@ O calendário aparece na barra lateral. No telemóvel (Android/iPhone com app Go
 
 ## O que vais ver no calendário
 
-Cada evento tem um título no formato `🏳 Equipa A vs 🏳 Equipa B (Grupo X)`. A descrição inclui a fase da prova e a transmissão prevista, por exemplo:
+Cada evento tem um título no formato `🏳 Equipa A vs 🏳 Equipa B (Grupo X)` ou `🏳 Equipa A vs 🏳 Equipa B (Dezasseis avos)`. A descrição inclui a fase da prova e a transmissão prevista, por exemplo:
 
 ```txt
 Mundial FIFA 2026 — Fase de Grupos, Grupo K.
@@ -103,3 +104,9 @@ Se detetares um erro (hora errada, canal errado, equipa mal escrita), abre uma *
 ## Licença
 
 Os dados do calendário são factuais (calendário desportivo público). O ficheiro `.ics` e este README são disponibilizados ao abrigo da licença [Creative Commons Zero (CC0)](https://creativecommons.org/publicdomain/zero/1.0/) — podes utilizar, copiar, modificar e partilhar à vontade.
+
+## Estado do quadro
+
+A fase de grupos já terminou e o quadro dos dezasseis avos está fechado com os resultados finais. O calendário mantém também a tabela dos melhores 3.ºs para contexto: passam os 12 primeiros, os 12 segundos e apenas os 8 melhores terceiros classificados.
+
+Critério FIFA para os melhores 3.ºs: pontos, diferença de golos (DG), golos marcados, conduta disciplinar e ranking FIFA. A combinação final dos 3.ºs apurados é **B/D/E/F/I/J/K/L**.
